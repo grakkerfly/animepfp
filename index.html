@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Anime Profile Picture — Teste</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <main>
+    <p class="tag">ANIME PROFILE PICTURE</p>
+    <h1>Tua próxima PFP é anime.</h1>
+    <p>Anexa uma foto e transforma com o estilo que aprovamos.</p>
+    <form id="generator">
+      <label for="password">Senha de teste</label>
+      <input id="password" type="password" autocomplete="off" required placeholder="A senha que tu cadastrou na Cloudflare">
+      <label for="image">Tua imagem</label>
+      <input id="image" type="file" accept="image/jpeg,image/png,image/webp" required>
+      <p class="small">JPG, PNG ou WebP • até 5 MB • Low / 1K / Auto</p>
+      <button id="generate" type="submit">Gerar anime PFP</button>
+    </form>
+    <p id="status" role="status" aria-live="polite">Cada geração usa créditos da tua Higgsfield.</p>
+    <div class="images">
+      <figure id="before" hidden><figcaption>Original</figcaption><img id="preview" alt="Imagem original"></figure>
+      <figure id="after" hidden><figcaption>Anime</figcaption><img id="result" alt="Resultado em anime"><button id="download" type="button">Baixar imagem</button><a id="open" target="_blank" rel="noopener noreferrer">Abrir imagem</a></figure>
+    </div>
+  </main>
+</body>
+</html>
