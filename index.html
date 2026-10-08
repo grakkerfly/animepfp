@@ -1,30 +1,427 @@
-<!doctype html>
-<html lang="pt-BR">
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>Anime Profile Picture — Teste</title>
-  <link rel="stylesheet" href="style.css">
-  <script src="script.js" defer></script>
-</head>
-<body>
-  <main>
-    <p class="tag">ANIME PROFILE PICTURE</p>
-    <h1>Tua próxima PFP é anime.</h1>
-    <p>Anexa uma foto e transforma com o estilo que aprovamos.</p>
-    <form id="generator">
-      <label for="password">Senha de teste</label>
-      <input id="password" type="password" autocomplete="off" required placeholder="A senha que tu cadastrou na Cloudflare">
-      <label for="image">Tua imagem</label>
-      <input id="image" type="file" accept="image/jpeg,image/png,image/webp" required>
-      <p class="small">JPG, PNG ou WebP • até 5 MB • Low / 1K / Auto</p>
-      <button id="generate" type="submit">Gerar anime PFP</button>
-    </form>
-    <p id="status" role="status" aria-live="polite">Cada geração usa créditos da tua Higgsfield.</p>
-    <div class="images">
-      <figure id="before" hidden><figcaption>Original</figcaption><img id="preview" alt="Imagem original"></figure>
-      <figure id="after" hidden><figcaption>Anime</figcaption><img id="result" alt="Resultado em anime"><button id="download" type="button">Baixar imagem</button><a id="open" target="_blank" rel="noopener noreferrer">Abrir imagem</a></figure>
+<!DOCTYPE html>
+<html lang="en">
+ <head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1" name="viewport"/>
+  <meta content="#081614" name="theme-color"/>
+  <meta content="Anime Profile Picture. Turn your photo into an anime PFP. Welcome to your character arc." name="description"/>
+  <title>
+   Anime Profile Picture
+  </title>
+  <link href="assets/pfp.jpg" rel="icon" type="image/jpeg"/>
+  <link href="https://fonts.googleapis.com" rel="preconnect"/>
+  <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+  <link href="https://fonts.googleapis.com/css2?family=VT323&amp;display=swap" rel="stylesheet"/>
+  <link href="style.css" rel="stylesheet"/>
+  <script defer="" src="script.js">
+  </script>
+ </head>
+ <body>
+  <a class="skip-link" href="#generator">
+   Skip to generator
+  </a>
+  <div aria-hidden="true" class="desktop-grid">
+  </div>
+  <div class="desktop">
+   <header class="topbar">
+    <a class="brand" href="#home">
+     <img alt="" height="96" src="assets/pfp.jpg" width="96"/>
+     <span>
+      Anime Profile Picture
+     </span>
+    </a>
+    <nav aria-label="Community links">
+     <a class="retro-button" href="#" id="twitter-link">
+      X / TWITTER
+      <span aria-hidden="true">
+       ↗
+      </span>
+     </a>
+     <a class="retro-button" href="#" id="pump-link">
+      PUMP.FUN
+      <span aria-hidden="true">
+       ↗
+      </span>
+     </a>
+     <button class="retro-button contract-button" id="copy-contract" type="button">
+      COPY CONTRACT
+      <span aria-hidden="true">
+       ▣
+      </span>
+     </button>
+    </nav>
+   </header>
+   <main id="home">
+    <section aria-labelledby="hero-title" class="hero-window window">
+     <div class="titlebar">
+      <span>
+       <span aria-hidden="true" class="window-icon">
+        ▧
+       </span>
+       anime_pfp.exe
+      </span>
+      <span class="title-tag">
+       $animePFP
+      </span>
+     </div>
+     <div class="hero-body">
+      <div class="hero-intro">
+       <div>
+        <h1 id="hero-title">
+         Anime Profile Picture
+         <br/>
+         <span aria-hidden="true" class="cursor">
+          _
+         </span>
+        </h1>
+       </div>
+       <div class="hero-note">
+        <span aria-hidden="true" class="online-dot">
+        </span>
+        Hear me out.
+        <br/>
+        If your pfp is an anime, your opinion doesn't count.
+       </div>
+      </div>
+      <img alt="A retro Anime Profile Picture dialog: Honestly you're a loser if you don't have an Anime Profile Picture." class="cover" height="426" src="assets/cover.png" width="1280"/>
+      <div class="ticker">
+       <span class="ticker-label">
+        SYSTEM MESSAGE
+       </span>
+       <p>
+        Upload any photo and turn it into an anime pfp
+        <span aria-hidden="true">
+         ✦
+        </span>
+       </p>
+      </div>
+     </div>
+    </section>
+    <div class="workspace">
+     <section aria-labelledby="generator-title" class="window generator-window">
+      <div class="titlebar">
+       <h2 id="generator-title">
+        <span aria-hidden="true" class="window-icon">
+         ✧
+        </span>
+        anime_pfp_generator.exe
+       </h2>
+       <button aria-expanded="true" aria-label="Minimize generator" class="window-control" data-collapse="generator-content" type="button">
+        _
+       </button>
+      </div>
+      <div class="window-content" id="generator-content">
+       <div class="window-menu">
+        <span class="version">
+         v.01
+        </span>
+       </div>
+       <div class="generator-heading">
+        <span class="step-chip">
+         01 → 02
+        </span>
+        <div>
+         <h3>
+          Turn your picture into anime style.
+         </h3>
+         <p>
+          No prompt needed.
+         </p>
+        </div>
+       </div>
+       <form id="generator">
+        <div class="preview-grid">
+         <div class="preview-panel">
+          <div class="panel-label">
+           <span>
+            01 / ORIGINAL
+           </span>
+           <span id="file-badge">
+            NO FILE
+           </span>
+          </div>
+          <label class="upload-zone" for="image" id="drop-zone">
+           <input accept="image/jpeg,image/png,image/webp" aria-label="Upload your photo" id="image" name="image" type="file"/>
+           <span class="upload-empty" id="upload-empty">
+            <span aria-hidden="true" class="upload-symbol">
+             ▧
+             <span>
+              +
+             </span>
+            </span>
+            <strong>
+             DROP YOUR PHOTO HERE
+            </strong>
+            <span>
+             or click to browse
+            </span>
+            <small>
+             JPG / PNG / WEBP · MAX 5 MB
+            </small>
+           </span>
+           <img alt="Your uploaded photo" class="preview-image" hidden="" id="preview"/>
+           <span class="replace-hint" hidden="" id="replace-hint">
+            CLICK TO REPLACE
+           </span>
+          </label>
+         </div>
+         <div class="preview-panel output-panel">
+          <div class="panel-label">
+           <span>
+            02 / ANIME PFP
+           </span>
+           <span class="result-badge" id="result-badge">
+            WAITING
+           </span>
+          </div>
+          <div class="output-stage" id="output-stage">
+           <div class="output-empty" id="output-empty">
+            <span aria-hidden="true" class="ascii-face">
+             (⌐■_■)
+            </span>
+            <strong>
+             YOUR NEXT ANIME PFP LIVES HERE
+            </strong>
+            <span>
+             Ready when you are.
+            </span>
+           </div>
+           <img alt="Your generated anime profile picture" class="preview-image" hidden="" id="result"/>
+           <div class="loading-overlay" hidden="" id="loading-overlay">
+            <div aria-hidden="true" class="pixel-spinner">
+            </div>
+            <strong id="loading-label">
+             Entering the anime universe…
+            </strong>
+            <span id="elapsed">
+             00:00
+            </span>
+           </div>
+          </div>
+         </div>
+        </div>
+        <div class="quota-info">
+        </div>
+        <div class="generation-controls">
+         <button class="retro-button generate-button" id="generate" type="submit">
+          <span aria-hidden="true">
+           ✦
+          </span>
+          GENERATE ANIME PFP
+         </button>
+        </div>
+       </form>
+       <div aria-live="polite" class="generation-status" role="status">
+        <span aria-hidden="true" class="status-light" id="status-light">
+        </span>
+        <span id="status">
+         Ready. Upload an image to begin.
+        </span>
+       </div>
+       <div class="result-actions" hidden="" id="result-actions">
+        <button class="retro-button" id="download" type="button">
+         ↓ DOWNLOAD PFP
+        </button>
+        <a class="retro-button" id="open" rel="noopener noreferrer" target="_blank">
+         OPEN IMAGE ↗
+        </a>
+       </div>
+      </div>
+      <div class="window-footer">
+      </div>
+     </section>
+     <aside aria-label="Profile" class="sidebar">
+      <section aria-labelledby="profile-title" class="window profile-window">
+       <div class="titlebar">
+        <h2 id="profile-title">
+         <span aria-hidden="true" class="window-icon">
+          ☺
+         </span>
+         user_profile.jpg
+        </h2>
+        <span class="title-tag">
+         ONLINE
+        </span>
+       </div>
+       <div class="profile-content">
+        <div class="profile-picture">
+         <img alt="Blue-haired anime girl wearing rainbow sunglasses at a laptop" height="1254" src="assets/pfp.jpg" width="1254"/>
+         <span class="profile-sticker">
+          ANIME ENJOYER
+         </span>
+        </div>
+        <div class="profile-name">
+         $animepfp
+         <span aria-hidden="true" class="online-dot">
+         </span>
+        </div>
+        <p>
+         Behind every questionable take
+         <br/>
+         is an anime profile picture.
+        </p>
+        <div class="profile-stats">
+         <span>
+          STATUS
+          <b>
+           Online
+          </b>
+         </span>
+         <span>
+          SPECIE
+          <b>
+           Anime
+          </b>
+         </span>
+        </div>
+       </div>
+      </section>
+      <div aria-label="Retro web badges" class="web-badges">
+      </div>
+     </aside>
     </div>
-  </main>
-</body>
+    <section aria-label="About Anime Profile Picture" class="manifesto">
+     <span aria-hidden="true" class="manifesto-symbol">
+      ✦
+     </span>
+    </section>
+   </main>
+   <footer class="site-footer">
+    <span>
+     Anime Profile Picture ©
+     <span id="year">
+      2026
+     </span>
+    </span>
+    <span>
+     We hate kids with anime profile picture.
+    </span>
+   </footer>
+  </div>
+  <div class="taskbar">
+   <button aria-controls="start-menu" aria-expanded="false" class="start-button retro-button" id="start" type="button">
+    <span aria-hidden="true">
+     ▦
+    </span>
+    START
+   </button>
+   <span class="taskbar-task">
+    <img alt="" height="20" src="assets/pfp.jpg" width="20"/>
+    Anime Profile Picture
+   </span>
+   <button aria-controls="music-player" aria-expanded="true" class="retro-button taskbar-music" id="toggle-player" type="button">
+    ♫ RADIO
+   </button>
+   <span class="taskbar-right">
+    <span aria-hidden="true" class="online-dot">
+    </span>
+    <span class="taskbar-online">
+     ONLINE
+    </span>
+    <time id="clock">
+     00:00
+    </time>
+   </span>
+  </div>
+  <section aria-labelledby="music-title" class="window floating-player music-window" id="music-player">
+   <div aria-label="Move music player. Drag or use arrow keys." class="titlebar player-drag-handle" id="player-drag-handle" tabindex="0">
+    <h2 id="music-title">
+     ♫ anime_pfp_radio.exe
+    </h2>
+    <button aria-controls="player-body" aria-expanded="true" aria-label="Minimize music player" class="window-control" id="minimize-player" type="button">
+     _
+    </button>
+   </div>
+   <div class="music-content" id="player-body">
+    <div class="player-screen">
+     <div class="player-screen-top">
+      <span id="music-state">
+       READY
+      </span>
+      <span id="track-number">
+       01 / 06
+      </span>
+     </div>
+     <div class="track-name" id="track-name">
+      Track 01
+     </div>
+     <div class="player-screen-bottom">
+      <span id="track-time">
+       00:00 / 00:00
+      </span>
+      <div aria-hidden="true" class="equalizer">
+       <i>
+       </i>
+       <i>
+       </i>
+       <i>
+       </i>
+       <i>
+       </i>
+       <i>
+       </i>
+       <i>
+       </i>
+       <i>
+       </i>
+       <i>
+       </i>
+      </div>
+     </div>
+    </div>
+    <div class="player-transport">
+     <div class="player-controls">
+      <button aria-label="Previous track" class="retro-button" id="previous" type="button">
+       |◀
+      </button>
+      <button aria-label="Play music" class="retro-button play-button" id="play" type="button">
+       ▶
+      </button>
+      <button aria-label="Stop music" class="retro-button" id="stop" type="button">
+       ■
+      </button>
+      <button aria-label="Next track" class="retro-button" id="next" type="button">
+       ▶|
+      </button>
+     </div>
+     <label class="sr-only" for="seek">
+      Track position
+     </label>
+     <input class="seek" disabled="" id="seek" max="100" min="0" step="0.1" type="range" value="0"/>
+    </div>
+    <div class="volume-row">
+     <label for="volume">
+      VOL
+     </label>
+     <input aria-label="Music volume" id="volume" max="1" min="0" step="0.01" type="range" value="0.5"/>
+     <span id="volume-value">
+      50%
+     </span>
+    </div>
+    <p class="sr-only" id="music-hint" role="status">
+     Music starts with your first interaction.
+    </p>
+    <audio id="audio" preload="auto">
+    </audio>
+   </div>
+  </section>
+  <div class="start-menu window" hidden="" id="start-menu">
+   <div class="start-menu-label">
+    animePFP
+   </div>
+   <div>
+    <a href="#home">
+     ▧ Home
+    </a>
+    <a href="#generator">
+     ✧ PFP generator
+    </a>
+    <button id="open-player" type="button">
+     ♫ Music player
+    </button>
+   </div>
+  </div>
+  <div aria-live="polite" class="toast" hidden="" id="toast" role="status">
+  </div>
+ </body>
 </html>
